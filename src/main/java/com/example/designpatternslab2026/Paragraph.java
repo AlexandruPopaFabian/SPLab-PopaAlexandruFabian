@@ -2,14 +2,26 @@ package com.example.designpatternslab2026;
 
 public class Paragraph implements Element {
     private String text;
+    AlignStrategy textAlignment;
 
     public Paragraph(String text) {
         this.text = text;
     }
+    public String getText() {
+        return text;
+    }
+
+    public void setAlignStrategy(AlignStrategy textAlignment) {
+        this.textAlignment = textAlignment;
+    }
 
     @Override
     public void print() {
-        System.out.println("Paragraph: " + text);
+        if (textAlignment != null) {
+            textAlignment.render(this); // Apelează strategia dacă este setată
+        } else {
+            System.out.println("Paragraph: " + text); // Formatul implicit fără aliniere
+        }
     }
 
     @Override
