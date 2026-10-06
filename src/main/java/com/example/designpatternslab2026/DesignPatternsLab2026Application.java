@@ -27,6 +27,26 @@ public class DesignPatternsLab2026Application {
         cap1111.add(new Image("Image subchapter 1.1.1.1"));
 
         noapteBuna.print();
+
+        System.out.println();
+        Paragraph p1 = new Paragraph("Pragraph 1");
+        Paragraph p2 = new Paragraph("Pragraph 2");
+        Paragraph p3 = new Paragraph("Paragraph 3");
+
+        cap1.add(p1);
+        cap1.add(p2);
+        cap1.add(p3);
+
+        System.out.println("Print without align:");
+        cap1.print();
+        System.out.println();
+
+        p1.setAlignStrategy( new AlignLeft());
+        p2.setAlignStrategy(new AlignCenter());
+        p3.setAlignStrategy(new AlignRight());
+        System.out.println("Print with align:");
+        cap1.print();
+
     }
 
 }
