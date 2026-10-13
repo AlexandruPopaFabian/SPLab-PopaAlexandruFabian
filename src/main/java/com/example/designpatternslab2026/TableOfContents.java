@@ -7,6 +7,13 @@ public class TableOfContents implements Element {
         this.something = something;
     }
 
+    public TableOfContents(){}
+
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visitTableOfContents(this);
+    }
+
     @Override
     public void print() {
         System.out.println("TableOfContents: " + something);
