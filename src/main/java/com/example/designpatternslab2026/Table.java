@@ -8,6 +8,11 @@ public class Table implements Element {
     }
 
     @Override
+    public void accept(Visitor visitor) {
+        visitor.visitTable(this);
+    }
+
+    @Override
     public void print() {
         System.out.println("Table: " + something);
     }

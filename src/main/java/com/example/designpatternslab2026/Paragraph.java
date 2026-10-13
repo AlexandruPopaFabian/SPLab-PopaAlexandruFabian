@@ -25,6 +25,11 @@ public class Paragraph implements Element {
     }
 
     @Override
+    public void accept(Visitor visitor) {
+        visitor.visitParagraph(this);
+    }
+
+    @Override
     public void add(Element element) {
         throw new UnsupportedOperationException("Operation not supported on Leaf node");
     }
