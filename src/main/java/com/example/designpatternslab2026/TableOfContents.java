@@ -1,13 +1,21 @@
 package com.example.designpatternslab2026;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TableOfContents implements Element {
     private String something;
+    private List<String> entries = new ArrayList<>();
 
     public TableOfContents(String something) {
         this.something = something;
     }
 
-    public TableOfContents(){}
+    public TableOfContents() {}
+
+    public void addEntry(String entry) {
+        entries.add(entry);
+    }
 
     @Override
     public void accept(Visitor visitor) {
@@ -16,7 +24,15 @@ public class TableOfContents implements Element {
 
     @Override
     public void print() {
-        System.out.println("TableOfContents: " + something);
+        if (something != null) {
+            System.out.println("TableOfContents: " + something);
+        } else {
+            System.out.println("----- Table of Contents -----");
+        }
+
+        for (String entry : entries) {
+            System.out.println(entry);
+        }
     }
 
     @Override
