@@ -1,7 +1,12 @@
 package com.example.designpatternslab2026;
 
-public class ImageProxy implements Element {
+import jakarta.persistence.*;
+
+@Entity
+public class ImageProxy extends BaseElement {
     private String url;
+
+    @Transient
     private Image realImg = null;
 
     public ImageProxy(String url) {
