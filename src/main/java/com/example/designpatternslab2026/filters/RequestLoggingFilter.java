@@ -1,12 +1,14 @@
 package com.example.designpatternslab2026.filters;
 
 import jakarta.servlet.*;
+import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
-@Component
+//@Component
+@WebFilter(urlPatterns = "/*")
 public class RequestLoggingFilter implements Filter {
 
     @Override
@@ -14,13 +16,16 @@ public class RequestLoggingFilter implements Filter {
             throws IOException, ServletException {
 
         HttpServletRequest req = (HttpServletRequest) request;
+        String path = req.getRequestURI();
 
-        // Log înainte de procesare
-        System.out.println("[LOG BEFORE] Incoming Request: " + req.getMethod() + " " + req.getRequestURI());
+        // Ignoră logarea pentru cererile interne ale H2 Console
+        if (path.startsWith("/h2-console")) {
+            chain.doFilter(request, response);
+            return;
+        }
 
+        System.out.println("[LOG BEFORE] Incoming Request: " + req.getMethod() + " " + path);
         chain.doFilter(request, response);
-
-        // Log după procesare
-        System.out.println("[LOG AFTER] Processed Request: " + req.getMethod() + " " + req.getRequestURI());
+        System.out.println("[LOG AFTER] Processed Request: " + req.getMethod() + " " + path);
     }
 }

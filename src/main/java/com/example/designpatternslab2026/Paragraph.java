@@ -1,7 +1,12 @@
 package com.example.designpatternslab2026;
 
-public class Paragraph implements Element {
+import jakarta.persistence.*;
+
+@Entity
+public class Paragraph extends BaseElement {
     private String text;
+
+    @Transient
     AlignStrategy textAlignment;
 
     public Paragraph(String text) {

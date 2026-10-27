@@ -5,9 +5,11 @@ import com.example.designpatternslab2026.difexample.SingletonComponent;
 import com.example.designpatternslab2026.difexample.TransientComponent;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.server.servlet.context.ServletComponentScan;
 import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
+@ServletComponentScan
 public class DesignPatternsLab2026Application {
 
     public static void main(String[] args) {
