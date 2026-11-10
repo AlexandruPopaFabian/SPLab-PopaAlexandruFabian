@@ -1,5 +1,6 @@
 package com.example.designpatternslab2026;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +8,7 @@ import java.util.List;
 @Entity
 public class Book extends Section {
 
+    @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL)
     private List<Author> authors = new ArrayList<>();
 
