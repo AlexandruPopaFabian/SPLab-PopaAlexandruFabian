@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Books SSE</title>
+</head>
+<body>
+<h1>All Books</h1>
+<a href="javascript:void(0)" onclick="sendRequest()">Fetch Books</a>
+<div id="sseDiv" style="margin-top: 20px; font-weight: bold;"></div>
+
+<script>
+    function sendRequest() {
+        if (typeof(EventSource) !== "undefined") {
+            console.log("Conectare la SSE...");
+            const source = new EventSource("http://localhost:8080/books-sse");
+
+            source.onmessage = function(event) {
+                console.log("Eveniment primitor prin SSE:", event.data);
+                const data = JSON.parse(event.data);
+
+                // Afișează ID-ul și Titlul cărții
+                document.getElementById("sseDiv").innerHTML +=
+                    `Book ID: ${data.id} | Title: ${data.title}<br>`;
+            };
+
+            source.onerror = function(err) {
+                console.error("Eroare EventSource (conexiune pierdută sau resetată):", err);
+            };
+        } else {
+            document.getElementById("sseDiv").innerHTML = "Browserul nu suportă SSE.";
+        }
+    }
+</script>
+</body>
+</html>
