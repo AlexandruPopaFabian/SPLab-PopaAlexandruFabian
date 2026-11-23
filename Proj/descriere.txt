@@ -1,14 +1,18 @@
 Event & Festival Production Planner: Event → Stage → Slot → [Tech Rider Note, Stage Layout Photo, Production Cost ($), Duration (mins)]
 
 Descrierea proiectului:
-Aplicația ajută organizatorii de evenimente sau festivaluri să își planifice programul și bugetul sub forma unui arbore ierarhic. Un eveniment conține mai multe scene, fiecare scenă are mai multe intervale orare (sloturi pentru artiști sau activități), iar în fiecare slot se pot adăuga detalii concrete (notițe pentru sunet/lumini, poze cu aranjamentul scenei, costuri și durate).
+Aplicația ajută organizatorii de evenimente sau festivaluri să își planifice programul și bugetul sub forma unui arbore ierarhic. Un eveniment conține mai multe scene,
+fiecare scenă are mai multe intervale orare (sloturi pentru artiști sau activități), iar în fiecare slot se pot adăuga detalii concrete (notițe pentru sunet/lumini, poze
+cu aranjamentul scenei, costuri și durate).
 
 Funcționalități principale:
 - <add> (Adăugare în arbore):
-  Permite construirea pas cu pas a structurii: crearea unui eveniment nou, adăugarea scenelor în cadrul evenimentului, definirea sloturilor pe fiecare scenă și atașarea detaliilor finale în fiecare slot (o notiță tehnică, o poză, un cost în dolari sau o durată în minute).
+  Permite construirea pas cu pas a structurii: crearea unui eveniment nou, adăugarea scenelor în cadrul evenimentului, definirea sloturilor pe fiecare scenă și atașarea
+  detaliilor finale în fiecare slot (o notiță tehnică, o poză, un cost în dolari sau o durată în minute).
 
 - <view> (Vizualizare structură):
-  Permite afișarea întregului arbore al unui eveniment (de la eveniment până la cele mai mici detalii din fiecare slot), dar și vizualizarea pe bucăți — de exemplu, doar programul unei singure scene sau detaliile unui anumit slot.
+  Permite afișarea întregului arbore al unui eveniment (de la eveniment până la cele mai mici detalii din fiecare slot), dar și vizualizarea pe bucăți — de exemplu, doar
+  programul unei singure scene sau detaliile unui anumit slot.
 
 - <summary> (Sumar și calcule automate):
   Calculează automat totalurile urcând dinspre detalii către vârf:
