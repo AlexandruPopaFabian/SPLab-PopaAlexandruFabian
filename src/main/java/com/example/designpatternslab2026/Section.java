@@ -2,12 +2,15 @@ package com.example.designpatternslab2026;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
 public class Section extends BaseElement {
     protected String title;
 
+    @JsonIgnore
     @OneToMany(targetEntity = BaseElement.class, cascade = CascadeType.ALL)
     protected List<Element> children = new ArrayList<>();
 
